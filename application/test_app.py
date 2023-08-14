@@ -40,14 +40,14 @@ def test_predict_post(client: FlaskClient):
     data = {
         'overall': '5',
         'total_bsmt_sf': '1200',
-        'exter': 'Bon',
+        'exter': '4',
         "gr_liv_area": "1800",
         "garage_area": "400",
-        'saleprice_m2_quartier': '200',
+        'saleprice_m2_quartier': '112.18',
         'totalfullbath': "2",
-        "kitchen_qual": "Excellent",
-        "neighborhood": "Banlieue",
-        'bsmt': 'Description de sous-sol quelconque'
+        "kitchen_qual": "TA",
+        "neighborhood": "Blueste",
+        'bsmt': '20'
     }
 
     response = client.post('/predict', data=data, follow_redirects=True)
