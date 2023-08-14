@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+    <title>Flask app</title>
+</head>
+<body>
+    <section class="hero is-primary is-fullheight has-background-light">
+
+        <div class="hero-head">
+            <nav class="navbar is-primary border-radius">
+                <div class="container">
+                    <div id="navbarMenuHeroA" class="navbar-menu has-text-white-ter has-background-grey is-expanded">
+                        <a class="navbar-item">
+                            <img style="" src="https://cdn-icons-png.flaticon.com/512/1255/1255822.png?w=826&t=st=1682255514~exp=1682256114~hmac=9342608fec64d3a49771df9b2e422b95b22a0f72b531a2b423477f7c03313e03" width="40" height="40" alt="Bulma">
+                          </a>
+                        <div class="navbar-end">
+                            <a href="{{ url_for('main.index') }}" class="navbar-item">
+                                Accueil
+                            </a>
+                            {% if current_user.is_authenticated %}
+                            <a href="{{ url_for('main.profile') }}" class="navbar-item">
+                                Prediction
+                            </a>
+                            {% endif %}
+                            {% if not current_user.is_authenticated %}
+                            <a href="{{ url_for('auth.login') }}" class="navbar-item">
+                                Connexion
+                            </a>
+                            <a href="{{ url_for('auth.signup') }}" class="navbar-item">
+                                Inscription
+                            </a>
+                            {% endif %}
+                            {% if current_user.is_authenticated %}
+
+                            <a href="{{ url_for('auth.logout') }}" class="navbar-item">
+                                Deconnexion
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        {% block title %}
+        {% endblock %}
+        <div class="hero-body">
+            <div class="container has-text-centered">
+               {% block content %}
+               {% endblock %}
+            </div>
+        </div>
+    </section>
+</body>
+</html>

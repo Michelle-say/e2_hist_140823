@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Prédiction du prix de la maison</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href="{{ url_for('static', filename='css/main.css') }}">
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <div class="register_page">
+        <div class="form">
+            <form action="{{url_for('main.predict')}}" method="POST">
+                Prix au m2 par quartier: <input type="number" name='Saleprice_quartier' placeholder="Quartier"><br>
+                Surface habitable au sol: <input type="number" name='Gr_Liv_Area' placeholder="Surface habitable en m2"><br>
+                Surface du garage: <input type="number" name='Garage_Area' placeholder="Superficie du garage en m2"><br>
+                Surface de la cave: <input type="number" name='Total_Bsmt_SF' placeholder="Superficie de la cave en m2"><br>
+                Qualité générale des finitions et des matériaux: <input type="number" name='Overall_Qual' placeholder="Qualité entre 1 (très mauvais) et 10 (Excellent)"><br>
+                Qualité des matériaux extérieurs: <input type="number" name='Exter_Qual' placeholder="Qualité entre 2 et 10..Excellent:10, Good:8, Average:6, Fair:4, Poor:2"><br>
+                Qualité des matériaux de la cuisine: <input type="text" name='Kitchen_Qual' placeholder="Ex:Excellent, Gd:Good, TA:Average, Fa:Fair, Po:Poor"><br>
+                Salle de bain: <input type="text" name='Neighborhood' placeholder="Nombre de salle de bain"><br>
+
+                <input type="submit" value="predict" class="submit">
+            </form>
+            <p> Votre bien est estimé à : {{data}}</p>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

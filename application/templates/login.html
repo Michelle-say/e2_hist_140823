@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="column is-4 is-offset-4">
+    <h3 class="title has-text-grey">Espace personnel</h3>
+    <br>
+    <div class="box">
+        <form method="POST" action="/login">
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large is-success" type="email" name="email" placeholder="Adresse Email" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large is-success has-icons-left" type="password" name="password" placeholder="Mot de Passe">
+                </div>
+            </div>
+            <div class="field">
+                <label class="checkbox">
+                    <input type="checkbox" name="remember">
+                    Se rappeler de moi
+                </label>
+            </div>
+              
+            <button class="button is-block is-primary is-large is-fullwidth is-responsive">Connexion</button>
+        </form>
+    </div>
+    <img style="container is-fullhd" src= "https://img.freepik.com/photos-gratuite/journee-mondiale-habitat-maison-modele-portee-main_1150-26743.jpg?w=826&t=st=1682272923~exp=1682273523~hmac=1103fb655c42baa115f0622cb93cfbc3bff46c5501b84843ba6f6007565b5ce2" width="400" height="300" alt="key">
+
+</div>
+<br>
+<br>
+
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div class="notification is-danger">
+        {{ messages[0] }}
+    </div>
+
+
+{% endif %}
+{% endwith %}
+{% endblock %}

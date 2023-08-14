@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<div class="column is-4 is-offset-4">
+
+    <h3 class="title has-text-grey">Espace Inscription</h3>
+
+    <br>
+    <div class="box">
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}. Veuillez vous rendre sur <a href="{{ url_for('auth.login') }}">la page de connection</a>.
+            </div>
+        {% endif %}
+        {% endwith %}
+        <form method="POST" action="/signup">
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large is-success" type="email" name="email" placeholder="Adresse Email" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large is-success has-icons-left" type="text" name="name" placeholder="Entrez votre Pseudo" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large is-success has-icons-left" type="password" name="password" placeholder="Mot de Passe">
+                </div>
+            </div>
+
+            <button class="button is-block is-primary is-large is-fullwidth is-responsive">S'inscrire</button>
+        </form>
+
+    </div>
+
+</div>
+<img style="" src= "https://img.freepik.com/photos-gratuite/porte-cles-bois-blanc_53876-94384.jpg?w=826&t=st=1682272056~exp=1682272656~hmac=c2302208f08b0b5617acac372c85dcd65ea20fe4877c3fcbbb92e27ce75c1241" width="400" height="300" alt="key">
+
+{% endblock %}
+
+

@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+
+{% block title %}
+<h1 style="font-size:55px; margin-left: auto; margin-right: auto; margin-top: 40px; color:grey; font-family: Helvetica">
+    Entrez vos informations
+</h1>
+{% endblock %}
+{% block content %}
+    <div class="register_page">
+        <div class="form">
+            <form action="{{url_for('main.predict')}}" method="POST">
+                <table style="margin-left: auto; margin-right: auto ">
+                    <tbody>
+
+                      <div class="field has-addons">
+                        <div class="control is-expanded">
+                            <label class="label">Qualité génerale du bati </label>
+                            <div class="select is-fullwidth">
+                            <select name="overall">
+                              <option selected>"Selectionnez entre 1 (Très mauvaise) et 10 (Excellente)"</option>  
+                              <option value="1"> 1</option>
+                              <option value="2"> 2</option>
+                              <option value="3"> 3</option>
+                              <option value="4"> 4</option>
+                              <option value="5"> 5</option>
+                              <option value="6"> 6</option>
+                              <option value="7"> 7</option>
+                              <option value="8"> 8</option>
+                              <option value="9"> 9</option>
+                              <option value="10">10</option>
+                            </select>
+                          </div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="control is-expanded">                        
+                      <label class="label">Superficie totale du sous-sol</label>
+                      <input class="input" type="number" name='total_bsmt_sf' placeholder="Superficie en m2" min="0">
+                  </div>
+
+                  <br>
+
+                  
+
+                  <div class="field has-addons">
+                    <div class="control is-expanded">
+                        <label class="label">Qualité des matériaux extérieurs </label>
+                        <div class="select is-fullwidth">
+                        <select name='exter'>
+                          <option selected>"Selectionnez entre 2 (Très mauvaise) et 10 (Excellente)"</option>  
+                          <option value="2"> 2</option>
+                          <option value="4"> 4</option>
+                          <option value="6"> 6</option>
+                          <option value="8"> 8</option>
+                          <option value="10">10</option>
+                        </select>
+                      </div>
+                    </div>
+                </div>
+                <br>
+
+
+                <div class="control is-expanded">                        
+                  <label class="label">Superficie Habitable</label>
+                  <input class="input" type="number" name='gr_liv_area' placeholder="Superficie en m2" min="0">
+              </div>
+              <br>
+
+
+              <div class="control is-expanded">                        
+                <label class="label">Superficie du Garage</label>
+                <input class="input" type="number" name='garage_area' placeholder="Superficie en m2" min="0">
+            </div>
+
+            <br>
+            
+            <div class="field has-addons">
+              <div class="control is-expanded">
+                  <label class="label">Prix médian du Quartier</label>
+                  <div class="select is-fullwidth">
+                  <select name='saleprice_m2_quartier'>
+                    <option selected>Sélectionnez</option>  
+                    <option value="139.83">Bloomington Heights (139,83 $)</option>
+                    <option value="112.18">Bluestem Heights (112.18 $)</option>
+                    <option value="94.81">Briardale Heights (94.81 $)</option>
+                    <option value="100.57">Brookside Heights (100.57 $)</option>
+                    <option value="118.58">Clear Creek Heights (118.58 $)</option>
+                    <option value="135.40">College Creek Heights (135.40 $)</option>
+                    <option value="117.51">Crawford Heights (117.51 $)</option>
+                    <option value="102.01">Edwards Heights (102.01 $)</option>
+                    <option value="117.48">Gilbert Heights (117.48 $)</option>
+                    <option value="87.25">Iowa DOT and Rail Road Heights (87.25 $)</option>
+                    <option value="86.10">Meadow Village Heights (86.10 $)</option>
+                    <option value="134.26">Mitchell Heights (134.26 $)</option>
+                    <option value="119.55">North Ames Heights (119.55 $)</option>
+                    <option value="129.38">Northridge Heights (129.38 $)</option>
+                    <option value="111.20">Northpark Villa (111.20 $)</option>
+                    <option value="160.36">Northridge Heights (160.36$)</option>
+                    <option value="114.91">Northwest Ames (114.91 $)</option>
+                    <option value="92.53">Old Town (92.53 $)</option>
+                    <option value="84.59">South & West of Iowa State University (84.59 $)</option>
+                    <option value="124.52">Sawyer (124.52 $)</option>
+                    <option value="115.75">Sawyer West (115.75 $)</option>
+                    <option value="140.53">Somerset (140.53 $)</option>
+                    <option value="157.86">Stone Brook (157.86 $)</option>
+                    <option value="141.82">Timberland (141.82$)</option>
+                    <option value="137.72">Veenker (137.72 $)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <br>
+            
+                        <div class="control is-expanded">                       
+                          <label class="label">Nombre de salle de bain</label>
+                          <input class="input" type="number" name='totalfullbath' placeholder="Entrez le nombre de salle de bain" min="0">
+                      </div>
+            
+                        <br>
+
+                        <div class="control is-expanded">                       
+                          <label class="label">Qualité génerale du sous-sol (Condition et Exposition naturelle)</label>
+                          <input class="input" type="number" name='bsmt' placeholder="Entrez une note entre 0 (Très mauvaise)et 30 (Excellente)" min="0" max="30">
+                      </div>
+  
+                      <br>
+
+
+                   
+                      <div class="field has-addons">
+                        <div class="control is-expanded">
+                            <label class="label">Qualité génerale de la cuisine </label>
+                            <div class="select is-fullwidth">
+                            <select name='kitchen_qual'>
+                              <option selected>"Selectionnez entre 2 (Très mauvaise) et 10 (Excellente)"</option>  
+                              <option value="Po"> 2</option>
+                              <option value="Gd"> 4</option>
+                              <option value="TA" >6</option>
+                              <option value="Fa"> 8</option>
+                              <option value="Po">10</option>
+                            </select>
+                          </div>
+                        </div>
+                    </div>
+
+                    <br>
+            
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                            <label class="label is-primary margin-bottom:0px">Quartier</label>
+                              <div class="select is-fullwidth">
+                                <select name="neighborhood">
+                                  <option selected>Sélectionnez</option>  
+                                  <option value="Blmngtn">Bloomington Heights</option>
+                                  <option value="Blueste">Bluestem</option>
+                                  <option value="BrDale">Briardale</option>
+                                  <option value="BrkSide">Brookside</option>
+                                  <option value="ClearCr">Clear Creek</option>
+                                  <option value="CollgCr">College Creek</option>
+                                  <option value="Crawfor">Crawford</option>
+                                  <option value="Edwards">Edwards</option>
+                                  <option value="Gilbert">Gilbert</option>
+                                  <option value="IDOTRR">Iowa DOT and Rail Road</option>
+                                  <option value="MeadowV">Meadow Village</option>
+                                  <option value="Mitchel">Mitchell</option>
+                                  <option value="NAmes">North Ames</option>
+                                  <option value="NoRidge">Northridge</option>
+                                  <option value="NPkVill">Northpark Villa</option>
+                                  <option value="NridgHt">Northridge Heights</option>
+                                  <option value="NWAmes">Northwest Ames</option>
+                                  <option value="OldTown">Old Town</option>
+                                  <option value="SWISU">South & West of Iowa State University</option>
+                                  <option value="Sawyer">Sawyer</option>
+                                  <option value="SawyerW">Sawyer West</option>
+                                  <option value="Somerst">Somerset</option>
+                                  <option value="StoneBr">Stone Brook</option>
+                                  <option value="Timber">Timberland</option>
+                                  <option value="Veenker">Veenker</option>
+                                </select>
+                              </div>
+                            </div>
+                        </div>
+
+                    </tbody>
+                    </table>
+                      <button class=" button is-block is-large is-fullwidth is-responsive is-primary" type="submit" value="predict">Obtenir le prix</button>
+
+            </form>
+            <p style="font-size:40px; margin-left: auto; margin-right: auto; margin-top: 20px; color:grey; font-family: Helvetica"> 
+              Le bien est estimé à <strong>{{data}}</strong> €
+            </p>
+        </div>
+
+        
+    </div>
+
+{% endblock %}

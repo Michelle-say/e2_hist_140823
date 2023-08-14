@@ -1,0 +1,36 @@
+Copy code
+{% extends 'base.html' %} <!-- Si vous utilisez un modèle de base -->
+
+{% block content %}
+    <h2>Prediction History</h2>
+    <table>
+        <tr>
+            <th>Overall</th>
+            <th>Total Bsmt SF</th>
+            <th>exter</th>
+            <th>gr_liv_area</th>
+            <th>garage_area</th>
+            <th>saleprice_m2_quartier</th>
+            <th>totalfullbath</th>
+            <th>Bsmt</th>
+            <th>kitchen_qual</th>
+            <th>neighborhood</th>
+            <th>Estimated Price</th>
+        </tr>
+        {% for prediction in predictions %}
+            <tr>
+                <td>{{ prediction.overall }}</td>
+                <td>{{ prediction.total_bsmt_sf }}</td>
+                <td>{{ prediction.exter }}</td>
+                <td>{{ prediction.gr_liv_area }}</td>
+                <td>{{ prediction.garage_area }}</td>
+                <td>{{ prediction.saleprice_m2_quartier }}</td>
+                <td>{{ prediction.totalfullbath }}</td>
+                <td>{{ prediction.bsmt }}</td>
+                <td>{{ prediction.kitchen_qual }}</td>
+                <td>{{ prediction.neighborhood }}</td>
+                <td>{{ prediction.estimated_price }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
