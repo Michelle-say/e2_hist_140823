@@ -61,7 +61,7 @@ def signup_post():
 
     # créer un nouvel utilisateur avec les données du formulaire. 
     # Hacher le mot de passe pour que la version en clair ne soit pas sauvegardée.
-    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))
+    new_user = User(email=email, name=name, password=generate_password_hash(password, method='scrypt'))
 
     # add the new user to the database
     db.session.add(new_user)

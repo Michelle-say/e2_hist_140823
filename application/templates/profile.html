@@ -78,7 +78,7 @@
             
             <div class="field has-addons">
               <div class="control is-expanded">
-                  <label class="label">Prix médian du Quartier</label>
+                  <label class="label">Prix moyen du Quartier</label>
                   <div class="select is-fullwidth">
                   <select name='saleprice_m2_quartier'>
                     <option selected>Sélectionnez</option>  
@@ -120,13 +120,7 @@
                       </div>
             
                         <br>
-
-                        <div class="control is-expanded">                       
-                          <label class="label">Qualité génerale du sous-sol (Condition et Exposition naturelle)</label>
-                          <input class="input" type="number" name='bsmt' placeholder="Entrez une note entre 0 (Très mauvaise)et 30 (Excellente)" min="0" max="30">
-                      </div>
-  
-                      <br>
+      
 
 
                    
@@ -135,12 +129,12 @@
                             <label class="label">Qualité génerale de la cuisine </label>
                             <div class="select is-fullwidth">
                             <select name='kitchen_qual'>
-                              <option selected>"Selectionnez entre 2 (Très mauvaise) et 10 (Excellente)"</option>  
-                              <option value="Po"> 2</option>
-                              <option value="Gd"> 4</option>
-                              <option value="TA" >6</option>
-                              <option value="Fa"> 8</option>
-                              <option value="Po">10</option>
+                              <option selected>"Selectionnez entre Po (Très mauvais) et Ex (Excellent)"</option>  
+                              <option value="Po">Po</option>
+                              <option value="Fa">Fa</option>
+                              <option value="TA">TA</option>
+                              <option value="Gd">Gd</option>
+                              <option value="Ex">Ex</option>
                             </select>
                           </div>
                         </div>
@@ -183,6 +177,15 @@
                               </div>
                             </div>
                         </div>
+
+                        <br>
+
+                        <div class="control is-expanded">                       
+                          <label class="label">Qualité génerale du sous-sol (Condition et Exposition naturelle)</label>
+                          <input class="input" type="number" name='bsmt' placeholder="Entrez une note entre 0 (Très mauvaise)et 30 (Excellente)" min="0" max="30">
+                      </div>
+  
+                      <br><br>
 
                     </tbody>
                     </table>

@@ -18,7 +18,7 @@ def index():
 @main.route('/profile')
 @login_required
 def profile():
-    user_predictions = Prediction.query.filter_by(id_user=current_user.id).order_by(Prediction.timestamp.desc()).all()
+    user_predictions = Prediction.query.filter_by(id_user=current_user.id).all()
     return render_template('profile.html', name=current_user.name, predictions=user_predictions)
 
 @main.route('/prediction_history')

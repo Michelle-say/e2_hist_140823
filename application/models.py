@@ -1,6 +1,7 @@
 from flask_login import UserMixin
 from . import db
 from datetime import datetime
+from sqlalchemy import text
 
 
 #Cela semble remplacer le create table
@@ -61,18 +62,23 @@ class Prediction(db.Model):
     
     @classmethod
     def get_prediction_by_user(cls, user_id):
+        query = text("""
+            SELECT neighborhood,
+                   saleprice_m2_quartier,
+                   totalfullbath,
+                   gr_liv_area, 
+                   garage_area,
+                   total_bsmt_sf,
+                   overall,
+                   kitchen_qual,
+                   bsmt,
+                   exter
+            FROM Predictions
+            WHERE id_user = :user_id
+        """)
+
         conn = db.session()
-        cursor = conn.execute(f'''SELECT 'neighborhood',
-                'saleprice_m2_quartier',
-                'total_full_bath',
-                "gr_liv_area", 
-                "garage_area",
-                'total_bsmt_sf',
-                'overall',
-                'kitchen_qual',
-                'bsmt',
-                'exter'
-                          FROM Predictions WHERE id_user={user_id}''').cursor
+        cursor = conn.execute(query, params={"user_id": user_id})
         return cursor.fetchall()
     
     @classmethod
@@ -80,4 +86,4 @@ class Prediction(db.Model):
         conn = db.session()
         conn.execute(''' DELETE FROM Predictions WHERE id=(SELECT Max(id) FROM Predictions)
                               ''')
-        db.session.commit()    
+        db.session.commit()

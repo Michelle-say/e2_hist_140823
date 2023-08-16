@@ -1,36 +1,42 @@
-Copy code
-{% extends 'base.html' %} <!-- Si vous utilisez un modèle de base -->
+{% extends 'base.html' %} 
+
+
 
 {% block content %}
-    <h2>Prediction History</h2>
-    <table>
-        <tr>
-            <th>Overall</th>
-            <th>Total Bsmt SF</th>
-            <th>exter</th>
-            <th>gr_liv_area</th>
-            <th>garage_area</th>
-            <th>saleprice_m2_quartier</th>
-            <th>totalfullbath</th>
-            <th>Bsmt</th>
-            <th>kitchen_qual</th>
-            <th>neighborhood</th>
-            <th>Estimated Price</th>
-        </tr>
-        {% for prediction in predictions %}
-            <tr>
-                <td>{{ prediction.overall }}</td>
-                <td>{{ prediction.total_bsmt_sf }}</td>
-                <td>{{ prediction.exter }}</td>
-                <td>{{ prediction.gr_liv_area }}</td>
-                <td>{{ prediction.garage_area }}</td>
-                <td>{{ prediction.saleprice_m2_quartier }}</td>
-                <td>{{ prediction.totalfullbath }}</td>
-                <td>{{ prediction.bsmt }}</td>
-                <td>{{ prediction.kitchen_qual }}</td>
-                <td>{{ prediction.neighborhood }}</td>
-                <td>{{ prediction.estimated_price }}</td>
-            </tr>
-        {% endfor %}
-    </table>
+    <h1 class="title is-1 has-text-grey">Votre Historique </h1>
+    <div class="table-container">
+        <table class="table">
+            <table class="table">
+                <tr>
+                    <th>Qualité du Bâti</th>
+                    <th>Superficie du sous sol</th>
+                    <th>Qualité des materiaux exterieurs</th>
+                    <th>Superficie habitable</th>
+                    <th>Superficie du garage</th>
+                    <th>Prix moyen du quartier</th>
+                    <th>Nombre de salle de bain</th>
+                    <th>Qualité génerale de la cuisine</th>
+                    <th>Quartier</th>
+                    <th>Qualité génerale du sous-sol</th>
+                    <th>Prix estimé</th>
+                </tr>
+                {% for prediction in predictions %}
+                    <tr>
+                        <td>{{ prediction.overall }}</td>
+                        <td>{{ prediction.total_bsmt_sf }}</td>
+                        <td>{{ prediction.exter }}</td>
+                        <td>{{ prediction.gr_liv_area }}</td>
+                        <td>{{ prediction.garage_area }}</td>
+                        <td>{{ prediction.saleprice_m2_quartier }}</td>
+                        <td>{{ prediction.totalfullbath }}</td>
+                        <td>{{ prediction.kitchen_qual }}</td>
+                        <td>{{ prediction.neighborhood }}</td>
+                        <td>{{ prediction.bsmt }}</td>
+                        <td>{{ prediction.estimated_price }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </table>
+      </div>
+
 {% endblock %}
